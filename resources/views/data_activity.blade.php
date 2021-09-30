@@ -33,36 +33,30 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr>
-                                        <td></td>
-                                        <td>Annisa Rahma </td>
-                                        <td>Komunikasi</td>
-                                        <td>Dec 3, 2020</td>
-                                        <td>IT Group</td>
-                                        <td>
-                                            <label class="badge badge-gradient-warning">Review </label>
-                                        </td>
-                                        <td>mail@gamial.com</td>
-                                        <td>
-                                            <a href="{{ url('data_activity_detail') }}" type="button" class="btn btn-sm btn-primary mb-1"> Detail</a>
-                                            <a href="{{ url('data_activity_edit') }}" type="button" class="btn btn-sm btn-light mb-1"> Ubah</a>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td></td>
-                                        <td>Annisa Rahma </td>
-                                        <td>Komunikasi</td>
-                                        <td>Dec 3, 2020</td>
-                                        <td>Corplan</td>
-                                        <td>
-                                            <label class="badge badge-gradient-warning">Review </label>
-                                        </td>
-                                        <td>mailsample@gmail.com</td>
-                                        <td>
-                                            <a href="{{ url('data_activity_detail') }}" type="button" class="btn btn-sm btn-primary mb-1"> Detail</a>
-                                            <a href="{{ url('data_activity_edit') }}" type="button" class="btn btn-sm btn-light mb-1"> Ubah</a>
-                                        </td>
-                                      </tr>
+                                    <?php $i= 1;?>
+                                    @foreach ($register as $r)
+                                        <tr>
+                                            <td><?=$i?></td>
+                                            <td>{{ $r->name }} </td>
+                                            <td>{{ $r->major }}</td>
+                                            <td>{{ $r->created_at }}</td>
+                                            <td>-</td>
+                                            <td>
+                                                @foreach ($status as $s)
+                                                    @if ( $s['id']== $r['source_information_id'])
+                                                        <?= $s['code'] ?>
+                                                    @endif
+                                                    
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $r->email }}</td>
+                                            <td>
+                                                <a href="{{ url('data_activity/'.$r->id.'/show') }}" type="button" class="btn btn-sm btn-primary mb-1"> Detail</a>
+                                                <a href="{{ url('data_activity/'.$r->id.'/edit') }}" type="button" class="btn btn-sm btn-light mb-1"> Ubah</a>
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    @endforeach
                                   </tbody>
                               </table>
                           </div>

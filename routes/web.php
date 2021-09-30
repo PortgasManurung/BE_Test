@@ -13,22 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::resource('/', DashboardController::class);
 
-Route::get('/form_registrasi', function () {
-    return view('form_registrasi');
-});
+Route::resource('form_registrasi',RegisterController::class);
 
-Route::get('/data_activity', function () {
-    return view('data_activity');
-});
-
-Route::get('/data_activity_detail', function () {
-    return view('data_activity_detail');
-});
-
-Route::get('/data_activity_edit', function () {
-    return view('data_activity_edit');
-});
+Route::resource('data_activity',ActivityController::class);

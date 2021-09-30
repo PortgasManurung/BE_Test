@@ -83,50 +83,25 @@
                         </tr>
                       </thead>
                       <tbody>
+                        @foreach ($data as $d)
                         <tr>
                           <td>
-                            Fund is not recieved
+                            {{ $d->name }}
                           </td>
                           <td>
-                            <label class="badge badge-gradient-success">Lain - lain</label>
+                            @foreach ($status as $s)
+                                                    @if ( $s['id']== $d['source_information_id'])
+                                                        <?= $s['code'] ?>
+                                                    @endif
+                                                    
+                                                @endforeach
                           </td>
                           <td>
-                            Dec 5, 2017
+                            {{ $d->created_at }}
                           </td>
                         </tr>
-                        <tr>
-                          <td>
-                            High loading time
-                          </td>
-                          <td>
-                            <label class="badge badge-gradient-warning">Inetnet</label>
-                          </td>
-                          <td>
-                            Dec 12, 2017
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Website down for one week
-                          </td>
-                          <td>
-                            <label class="badge badge-gradient-info">Facebook</label>
-                          </td>
-                          <td>
-                            Dec 16, 2017
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Loosing control on server
-                          </td>
-                          <td>
-                            <label class="badge badge-gradient-danger">Instagram</label>
-                          </td>
-                          <td>
-                            Dec 3, 2017
-                          </td>
-                        </tr>
+                        @endforeach
+                        
                       </tbody>
                     </table>
                   </div>
