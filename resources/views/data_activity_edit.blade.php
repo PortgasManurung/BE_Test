@@ -106,7 +106,7 @@
                             <div class="form-group">
                                 <label for="#">Alamat Domisili </label><span class="text-danger">*</span>
                                 <textarea class="form-control" id="#" rows="8"
-                                    placeholder="Alamat Domisili" name="address" value="{{ $register-> address}}">value="{{ $register-> address}}"</textarea>
+                                    placeholder="Alamat Domisili" name="address" value="<?=$register['address']?>"><?php echo $register['address']?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="#">Instagram</label><span class="text-danger"></span>
@@ -171,7 +171,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="#">Keahlian</label><span class="text-danger">*</span>
-                                <textarea class="form-control" id="exampleTextarea1" rows="10" name="skill" value="{{ $register-> skill}}">value="{{ $register-> address}}"</textarea>
+                                <textarea class="form-control" id="exampleTextarea1" rows="10" name="skill" value="{{ $register-> skill}}"><?php echo $register['skill']?></textarea>
                             </div>
                         </div>
                     </div><br>

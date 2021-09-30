@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
       <!-- partial -->
       <div class="main-panel">        
         <div class="content-wrapper">
@@ -28,11 +29,11 @@
                                 <input type="text" class="form-control" id="#"
                                     placeholder="Ahmad Syaifullah" name="nama">
                             </div>
-                            <?php $i = 0;?>
+                            <?php $a =array()?>
                             @foreach ($register as $r)
-                                <?php $i++ ?>
+                                <?php array_push($a,$r['id']); ?>
                             @endforeach
-                            <input hidden name="id" value="<?php echo $i+1?>">
+                            <input hidden name="id" value="<?php echo end($a)+1?>">
                             <div class="form-group">
                                 <label for="#">Jenis Kelamin</label><span class="text-danger">*</span>
                                 <select class="form-control" id="exampleFormControlSelect1" name="jk">
